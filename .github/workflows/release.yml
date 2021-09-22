@@ -31,14 +31,14 @@ jobs:
         with:
           command: build
           args: |
-            - --manifest-path ravedude/Cargo.toml
-            - --release
-            - --locked
+            --manifest-path ravedude/Cargo.toml
+            --release
+            --locked
 
       - name: Save artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ravedude
+          name: ravedude-${{ matrix.os }}
           path: |
             ravedude/target/release/ravedude
             ravedude/target/release/ravedude.exe
